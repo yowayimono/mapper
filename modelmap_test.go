@@ -50,7 +50,7 @@ func TestMapFields(t *testing.T) {
 
 	target := TargetStructWithNested{}
 
-	mapper.MapFields(&source, &target)
+	mapper.Maps(&source, &target)
 
 	expected := TargetStructWithNested{
 		Username: "john",

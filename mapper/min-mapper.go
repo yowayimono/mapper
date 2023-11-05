@@ -2,7 +2,7 @@ package mapper
 
 import "reflect"
 
-func MapFields(source, target interface{}) {
+func Maps(source, target interface{}) {
 	sourceValue := reflect.ValueOf(source).Elem()
 	targetValue := reflect.ValueOf(target).Elem()
 
@@ -12,7 +12,7 @@ func MapFields(source, target interface{}) {
 
 		if targetField.IsValid() && targetField.CanSet() {
 			if sourceField.Type.Kind() == reflect.Struct && targetField.Type().Kind() == reflect.Struct {
-				MapFields(sourceValue.Field(i).Addr().Interface(), targetField.Addr().Interface())
+				Maps(sourceValue.Field(i).Addr().Interface(), targetField.Addr().Interface())
 			} else {
 				targetField.Set(sourceValue.Field(i))
 			}
