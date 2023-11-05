@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/yowayimono/mapper/mapper"
 	"reflect"
 	"testing"
 )
@@ -49,7 +50,7 @@ func TestMapFields(t *testing.T) {
 
 	target := TargetStructWithNested{}
 
-	MapFields(&source, &target)
+	mapper.MapFields(&source, &target)
 
 	expected := TargetStructWithNested{
 		Username: "john",
